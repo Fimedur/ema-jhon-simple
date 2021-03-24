@@ -16,7 +16,8 @@ const Cart = (props) => {
         shipping =12.99
     }
     const tax = (totalPrice*.15);
-    const GT = totalPrice + shipping +tax;
+    const GT = (totalPrice + shipping +tax).toFixed(2);
+    //const finalSum = GT.toFixed(2);
     return (
         <div>       
             <h3>Order Summary</h3>
