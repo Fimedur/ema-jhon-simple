@@ -5,7 +5,7 @@ import {
   } from "react-router-dom";
 
 const Cart = (props) => {
-    console.log(props.cart);
+    //console.log(props.cart);
     const cart = props.cart;
     const totalPrice = cart.reduce((total,prd) => total + prd.price, 0);
     let shipping = 0;
@@ -32,7 +32,7 @@ const Cart = (props) => {
             <hr/>
             <p>Grand Total:   {GT}</p>
             <Link to="/review">
-            <button className="add-button" >Review</button>
+            <button className="add-button" >Review Order</button>
             </Link>
             
         </div>
