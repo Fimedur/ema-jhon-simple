@@ -2,7 +2,7 @@ import React from 'react';
 
 const ReviewProduct = (props) => {
     console.log(props)
-    const {name, quantity, price, img} = props.product;
+    const {name, quantity, price, img,key} = props.product;
     const reviewItemStyle ={
         borderBottom: '1px solid lightgry',
         marginBottom: '10px',
@@ -16,7 +16,9 @@ const ReviewProduct = (props) => {
             <img src={img} alt=""/>
             <p>Quantity: {quantity} </p>
             <p>Price: {price}</p>
-            <button className="add-button">Remove</button>
+            <button 
+            onClick={() => props.romoveProduct(key)}
+            className="add-button">Remove</button>
         </div>
     );
 };

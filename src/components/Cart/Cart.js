@@ -33,8 +33,7 @@ const Cart = (props) => {
             <p>Grand Total:   {GT}</p>
             <Link to="/review">
             <button className="add-button" >Review Order</button>
-            </Link>
-            
+            </Link>            
         </div>
     );
 };

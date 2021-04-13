@@ -4,8 +4,16 @@ import { useEffect } from 'react';
 import { getDatabaseCart } from '../../utilities/databaseManager';
 import fakeData from '../../fakeData'
 import ReviewProduct from '../ReviewProduct/ReviewProduct';
+import Cart from '../Cart/Cart';
+import './Review.css';
 const Review = () => {
     const [cart, setCart] = useState([])
+
+    const romoveProduct = (productKey) =>{
+        console.log('romove click',productKey );
+        const newCart = cart.filter(pd => pd.key !== productKey);
+        setCart(newCart);
+    }
     useEffect(() => {
         //Cart
         const savedCart = getDatabaseCart();
@@ -18,17 +26,23 @@ const Review = () => {
        
         setCart(cartProduct);
         //console.log(cartProduct);
-        console.log(cart);
+        //console.log(cart);
     }, [])
+    
+     
     return (
-        <div>
-            <h1>This is review{cart.length}</h1>
-           {
-               cart.map(pd => <ReviewProduct product={pd}></ReviewProduct>)
-           } 
-            
-            
+        <div className="R-container">
+            <div className="product-container">
+                <h1>This is review{cart.length}</h1>
+                {
+                    cart.map(pd => <ReviewProduct romoveProduct={romoveProduct} product={pd}></ReviewProduct>)
+                }
+            </div>
+            <div cclassName="cart-container">
+                <Cart cart={cart}></Cart>
+            </div>
         </div>
+       
     );
 };
 
